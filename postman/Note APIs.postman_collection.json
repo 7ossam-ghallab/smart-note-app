@@ -1,0 +1,330 @@
+{
+	"info": {
+		"_postman_id": "02fd9c33-bce4-4411-a612-86540c261f2d",
+		"name": "Note APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37376083"
+	},
+	"item": [
+		{
+			"name": "User Authentication",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"hossam\",\r\n  \"email\": \"hghallab833@gmail.com\",\r\n  \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/auth/register",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"hghallab833@gmail.com\",\r\n  \"password\": \"1234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/auth/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Uplaod profile pic",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODU2ZTMzMzQ0MjU0NmFkNjRkNmFjMiIsImVtYWlsIjoiaGdoYWxsYWI4MzNAZ21haWwuY29tIiwiaWF0IjoxNzUzNTc0OTg4LCJleHAiOjE3NTM2MTgxODgsImp0aSI6ImY5M2NiMmI3LWQ4YzItNGZhNS04NzBkLTViYWE2MTNlNDk3MSJ9.3kaxSN3Y-C1MHy9WHawTa7JyfwpNvtk9PACVBvwc3u0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profilePic",
+									"type": "file",
+									"src": "/D:/Download/images_and_icons/ICONS/facebook.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/auth/upload-profile-pic",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"auth",
+								"upload-profile-pic"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forget password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"hghallab833@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/auth/forget-password",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"auth",
+								"forget-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"hghallab833@gmail.com\",\r\n    \"otpCode\" : \"529528\",\r\n    \"newPassword\" : \"1234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/auth/reset-password",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"auth",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODU2ZTMzMzQ0MjU0NmFkNjRkNmFjMiIsImVtYWlsIjoiaGdoYWxsYWI4MzNAZ21haWwuY29tIiwiaWF0IjoxNzUzNTc0OTg4LCJleHAiOjE3NTM2MTgxODgsImp0aSI6ImY5M2NiMmI3LWQ4YzItNGZhNS04NzBkLTViYWE2MTNlNDk3MSJ9.3kaxSN3Y-C1MHy9WHawTa7JyfwpNvtk9PACVBvwc3u0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/auth/logout",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notes Management",
+			"item": [
+				{
+					"name": "AI Integration",
+					"item": [
+						{
+							"name": "note summarization",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODU2ZTMzMzQ0MjU0NmFkNjRkNmFjMiIsImVtYWlsIjoiaGdoYWxsYWI4MzNAZ21haWwuY29tIiwiaWF0IjoxNzUzNTc3MTIyLCJleHAiOjE3NTM2MjAzMjIsImp0aSI6IjI5ZjM0MTkyLThkNTctNDQ0MS04OTY5LThkYjcwYjEyMDViYSJ9.jX7u76R4M60TYbJRRSF8zYdTuLZiUhb7YttN5OWzfiE",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseURL}}/notes/6885786b438e70b01f38eb24/summarize",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"notes",
+										"6885786b438e70b01f38eb24",
+										"summarize"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get Notes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODU2ZTMzMzQ0MjU0NmFkNjRkNmFjMiIsImVtYWlsIjoiaGdoYWxsYWI4MzNAZ21haWwuY29tIiwiaWF0IjoxNzUzNTc3MTIyLCJleHAiOjE3NTM2MjAzMjIsImp0aSI6IjI5ZjM0MTkyLThkNTctNDQ0MS04OTY5LThkYjcwYjEyMDViYSJ9.jX7u76R4M60TYbJRRSF8zYdTuLZiUhb7YttN5OWzfiE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/notes?query={\n  notes(userId: \"68856e333442546ad64d6ac2\", page: 2, limit: 5) {\n    notes {\n      _id\n      title\n      content\n      createdAt\n      ownerId {\n        _id\n        name\n        email\n      }\n    }\n    totalCount\n    totalPages\n    currentPage\n  }\n}\n",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "{\n  notes(userId: \"68856e333442546ad64d6ac2\", page: 2, limit: 5) {\n    notes {\n      _id\n      title\n      content\n      createdAt\n      ownerId {\n        _id\n        name\n        email\n      }\n    }\n    totalCount\n    totalPages\n    currentPage\n  }\n}\n"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Note",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODU2ZTMzMzQ0MjU0NmFkNjRkNmFjMiIsImVtYWlsIjoiaGdoYWxsYWI4MzNAZ21haWwuY29tIiwiaWF0IjoxNzUzNTc3MTIyLCJleHAiOjE3NTM2MjAzMjIsImp0aSI6IjI5ZjM0MTkyLThkNTctNDQ0MS04OTY5LThkYjcwYjEyMDViYSJ9.jX7u76R4M60TYbJRRSF8zYdTuLZiUhb7YttN5OWzfiE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"A FARMER AND HIS PRISONER SON\",\r\n    \"content\" : \"In a certain village lived a farmer and his only son. The son was a thief who went about stealing from people’s homes until one day he stole a large sum of money from the richest man in the village and was caught and imprisoned. When farming season came, the old farmer, now weak, wrote to his son saying he couldn’t dig the field and wished his son was there to help. The son replied, telling his father not to dig because that’s where he buried the stolen money. The police, reading the letter, dug up the entire field looking for the money but found nothing. The son then wrote again saying, \\\"Dad, now you can plant your cassava and yam, that’s the best I can do from here.\\\" The father replied, amazed, \\\"My son, you are truly powerful—even in prison you command policemen to dig my farm. I’ll write to you when it’s time to harvest.\\\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/notes/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Note",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODU2ZTMzMzQ0MjU0NmFkNjRkNmFjMiIsImVtYWlsIjoiaGdoYWxsYWI4MzNAZ21haWwuY29tIiwiaWF0IjoxNzUzNTc3MTIyLCJleHAiOjE3NTM2MjAzMjIsImp0aSI6IjI5ZjM0MTkyLThkNTctNDQ0MS04OTY5LThkYjcwYjEyMDViYSJ9.jX7u76R4M60TYbJRRSF8zYdTuLZiUhb7YttN5OWzfiE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/notes/68857717438e70b01f38eb07",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes",
+								"68857717438e70b01f38eb07"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Error Path",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODM3ZjFkZjMyNzk2YzhjNDdiMmNiOSIsImVtYWlsIjoibWF6ZW50YXJla0BnbWFpbC5jb20iLCJpYXQiOjE3NTM0NjAwNTcsImV4cCI6MTc1MzUwMzI1NywianRpIjoiOGZmOTM4ZWItYWExYi00OTJiLWI4YjMtMjVjMTQwNWM3M2I2In0.0B7sdzbEe42xc_kpMDY4Qp6RPftDZgw-VE2X-_kz0Js",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/auth/path",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"auth",
+						"path"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
